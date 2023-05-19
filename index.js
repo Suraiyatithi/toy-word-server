@@ -47,6 +47,12 @@ app.get('/mytoys',async(req,res)=>{
   const result=await cursur.toArray();
   res.send(result);
 })
+app.get('/mytoys/:id', async(req, res) => {
+  const id = req.params.id;
+  const query = {_id: new ObjectId(id)}
+  const result = await myCollection.findOne(query);
+  res.send(result);
+})
 app.post('/mytoys',async(req,res)=>{
   const adding=req.body;
   console.log(adding);
@@ -68,7 +74,45 @@ app.delete('/mytoys/:id',async(req,res)=>{
   const result=await myCollection.deleteOne(query);
   res.send(result);
 })
+app.get("/mytoys/:email", async (req, res) => {
+  console.log(req.params.id);
+  const toys = await myCollection
+    .find({
+      postedBy: req.params.email,
+    })
+    .toArray();
+  res.send(toys);
+});
 
+
+
+app.put("/mytoys/:id", async (req, res) => {
+  const id = req.params.id;
+  const body = req.body;
+  console.log(body);
+  const filter = { _id: new ObjectId(id) };
+  const updateDoc = {
+    $set: {
+      price: body.price,
+      availableQuantity: body.availableQuantity,
+      description: body.description,
+      rating:body.rating
+    },
+  };
+  const result = await myCollection.updateOne(filter, updateDoc);
+  res.send(result);
+});
+
+
+//   app.get("/allJobsByCategory/:category", async (req, res) => {
+//   console.log(req.params.id);
+//   const jobs = await jobsCollection
+//     .find({
+//       status: req.params.category,
+//     })
+//     .toArray();
+//   res.send(jobs);
+// });
 
 
     await client.db("admin").command({ ping: 1 });
