@@ -31,6 +31,7 @@ async function run() {
     // Send a ping to confirm a successful connection
 const toysCollection=client.db('toyWorld').collection('toys')
 const myCollection=client.db('toyWorld').collection('mytoys')
+const categoryCollection=client.db('toyWorld').collection('category')
 app.get('/toys',async(req,res)=>{
     const cursor=toysCollection.find();
     const result=await cursor.toArray()
@@ -102,17 +103,22 @@ app.put("/mytoys/:id", async (req, res) => {
   const result = await myCollection.updateOne(filter, updateDoc);
   res.send(result);
 });
+app.get('/category',async(req,res)=>{
+  const cursor=categoryCollection.find();
+  const result=await cursor.toArray()
+  res.send(result);
+})
 
 
-//   app.get("/allJobsByCategory/:category", async (req, res) => {
-//   console.log(req.params.id);
-//   const jobs = await jobsCollection
-//     .find({
-//       status: req.params.category,
-//     })
-//     .toArray();
-//   res.send(jobs);
-// });
+  app.get("/category/:category", async (req, res) => {
+  console.log(req.params.id);
+  const jobs = await categoryCollection
+    .find({
+      status: req.params.category,
+    })
+    .toArray();
+  res.send(jobs);
+});
 
 
     await client.db("admin").command({ ping: 1 });

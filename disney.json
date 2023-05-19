@@ -187,6 +187,7 @@
     "description": "A tea party set inspired by Belle from Disney's baloo and musafa include",
     "rating": 4.5
   },
+  [
   {
     "sellerName": "Sophia Thompson",
     "sellerEmail": "sophiathompson@example.com",
@@ -198,6 +199,7 @@
     "description": "This toy-themed sorting is a great way to get your children thinking about where the materials we use in everyday lives comes from. Linking to your toys topic.",
     "rating": 4.9
   },
+  
   {
     "sellerName": "Alexander Davis",
     "sellerEmail": "alexanderdavis@example.com",
@@ -219,6 +221,40 @@
     "picture": "https://i.ibb.co/b5qykFR/download.jpg",
     "description": "This toy-themed sorting is a great way to get your children thinking about where the materials we use in everyday lives comes from. Linking to your toys topic",
     "rating": 4.7
+  },
+ 
+  {
+    "sellerName": "John Doe",
+    "sellerEmail": "johndoe@example.com",
+    "toyName": "Jasmin",
+    "subCategory": "Disney Princess",
+    "price": 19.99,
+    "availableQuantity": 10,
+    "picture": "https://i.ibb.co/QXykRFK/download.jpg",
+   "description": "This toy-themed sorting is a great way to get your children thinking about where the materials we use in everyday lives comes from. Linking to your toys topic.",
+    "rating": 4.5
+  },
+  {
+    "sellerName": "Jane Smith",
+    "sellerEmail": "janesmith@example.com",
+    "toyName": "Else",
+    "subCategory": "Frozen doll",
+    "price": 20.70,
+    "availableQuantity": 5,
+    "picture": "https://i.ibb.co/fSqC9jX/download.jpg",
+    "description": "A magical castle playset inspired by Disney princesses.",
+   "rating": 4.8
+  },
+  {
+    "sellerName": "Mark Joohnn",
+    "sellerEmail": "markjohnson@example.com",
+    "toyName": "Anna",
+    "subCategory": "Frozen doll",
+    "price": 21.99,
+    "availableQuantity": 8,
+    "picture": "https://i.ibb.co/qJZYSgB/download.jpg",
+    "description": "This toy-themed sorting is a great way to get your children thinking about where the materials we use in everyday lives comes from. Linking to your toys topic",
+    "rating": 4.2
   }
 
 ]
