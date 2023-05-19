@@ -53,6 +53,21 @@ app.post('/mytoys',async(req,res)=>{
   const result=await myCollection.insertOne(adding);
   res.send(result);
 })
+app.get('/mytoys', async (req, res) => {
+  console.log(req.query.email);
+  let query = {};
+  if (req.query?.email) {
+      query = { email: req.query.email }
+  }
+  const result = await bookingCollection.find(query).toArray();
+  res.send(result);
+})
+app.delete('/mytoys/:id',async(req,res)=>{
+  const id=req.params.id;
+  const query={_id: new ObjectId(id)}
+  const result=await myCollection.deleteOne(query);
+  res.send(result);
+})
 
 
 
