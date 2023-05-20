@@ -116,15 +116,7 @@ app.get('/category/:id',async(req,res)=>{
 })
 
 
-//   app.get("/category/:category", async (req, res) => {
-//   console.log(req.params.id);
-//   const jobs = await categoryCollection
-//     .find({
-//       status: req.params.category,
-//     })
-//     .toArray();
-//   res.send(jobs);
-// });
+
 
 
     await client.db("admin").command({ ping: 1 });
