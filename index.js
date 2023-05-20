@@ -108,17 +108,23 @@ app.get('/category',async(req,res)=>{
   const result=await cursor.toArray()
   res.send(result);
 })
+app.get('/category/:id',async(req,res)=>{
+  const id=req.params.id;
+  const query={_id: new ObjectId(id)}
+  const result=await categoryCollection.findOne(query);
+  res.send(result)
+})
 
 
-  app.get("/category/:category", async (req, res) => {
-  console.log(req.params.id);
-  const jobs = await categoryCollection
-    .find({
-      status: req.params.category,
-    })
-    .toArray();
-  res.send(jobs);
-});
+//   app.get("/category/:category", async (req, res) => {
+//   console.log(req.params.id);
+//   const jobs = await categoryCollection
+//     .find({
+//       status: req.params.category,
+//     })
+//     .toArray();
+//   res.send(jobs);
+// });
 
 
     await client.db("admin").command({ ping: 1 });
